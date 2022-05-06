@@ -1,0 +1,35 @@
+﻿@model List<Tank>
+
+
+<h1>Tanks</h1>
+
+<a asp-action="Create"> Add a new tank to the tanklist</a>
+
+<div class="card">
+    <div class="font-weight-light mt-3">
+        <div>TankName</div>
+        <div>TankType</div>
+        <div>Tankinfo</div>
+        <div>Country</div>
+    </div>
+</div>
+@foreach (Tank tank in Model)
+{
+<div class="card">
+    <div class="card-header bg-white text-dark">
+        <div class=" font-weight-bold mt-3 align-items-lg-stretch">
+            <div >@tank.Name</div>
+            <div >@tank.TankType</div>
+            <div >@tank.TankInfo</div>
+            <div >@tank.Country</div>
+           
+            <div>@Html.ActionLink("Details", "Details", "Tanks", new { id = tank.Id })</div>
+            <div>@Html.ActionLink("Delete", "Delete", "Tanks", new { id = tank.Id })</div>
+            <div>@Html.ActionLink("Edit", "Edit", "Tanks", new { id = tank.Id })</div>
+          </div>
+    </div>
+</div>
+}
+
+
+
